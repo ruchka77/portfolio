@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap&family=Shadows+Into+Light&display=swap');
+:root {
+    --bgcolor: #1A1A1A;
+    --navcolor: #D97706;
+    --portfolio: #D3D3D3;
+}
+* ,
+::after
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+}
+/* start NAV CSS */
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--navcolor);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+.nav-ul {
+    display: flex;
+    list-style: none;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    margin-right: 30px;
+    padding: 0;
+}
+.nav-item li{ 
+    height: 100%;
+}
+.nav-ul a {
+    display: block;
+    padding: 20px;
+}
+.navitem {
+    font: 400 25px 'Oswald', sans-serif;
+}
+.navitem a:hover {
+    background-color:  var(--bgcolor);
+}
+
+.navitem a {
+    text-decoration: none;
+    color:  cornsilk;
+    transition: background-color 350ms ease;
+}
+/* end nav CSS */
+/* Welcome Section css */
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--bgcolor);
+
+}
+/* start Welcome CSS */ 
+.sections {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.welcome-section h1 {
+    font-size: 45px;
+    color: cornsilk;
+    text-shadow: 1px 1px 1px black;
+}
+
+ /* moon Styling */
+ .titlewelcome {
+    animation: color-change 2.5s ease-in-out infinite alternate;
+ }
+ 
+ @keyframes color-change {
+    0% {
+        color: cornsilk;
+    }
+    50% {
+        color: blanchedalmond;
+    }
+    100% {
+        color: var(--navcolor);
+        text-shadow: 1px 2px 20px black;
+    }
+ }
+
+.playbox {
+    height: 300px;
+    width: 300px;
+    background-color: black;
+    border-radius: 100%;
+    box-shadow: 1px -7px 7px blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playbox, .playbox div {
+    animation: moon-hover 2.5s ease-in-out infinite alternate;       
+}
+
+@keyframes moon-hover {
+    0% {
+        opacity: 0;
+        background-image: url(earth.jpg);
+        font-size: 0px;
+        padding: 10px;
+        }
+
+    50% {
+        opacity: 0.6;
+        padding: 30px;
+        background-image: url(earth.jpg);
+        border-radius: 50%;
+    }
+    100% {
+        font-size: 0px;
+        opacity: 1;
+        padding: 50px;
+        background-image: url(earth.jpg);
+        object-fit: fill;
+        border-radius: 15%;
+        box-shadow: 1px -3px 3px black;
+    }
+}
+
+/* Signature CSS */
+
+.signature {
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   color: cornsilk;
+   margin-right: 20px;
+   font: 23px 'Shadows Into Light' ;
+   text-shadow: 1px 1px 3px black;
+   overflow: hidden;
+}
+
+/* Projects CSS  */
+.projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--portfolio);
+    position: relative;
+}
+
+.project-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--bgcolor);
+    margin-top: 100px;
+    margin-bottom: 10px;
+}
+.underline {
+  width: 500px;
+  height: 2px;
+  background-color: var(--navcolor);  
+}
+
+/* GRID Works CSS !! */
+.grid {
+    margin-top: 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 300px);   
+    gap: 30px;
+    justify-content: center;               
+}
+
+.workbox {
+    width: 300px;
+    height: 300px;
+    box-shadow: 0.5px 0px 3px rgb(0, 0, 0);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }  
+    
+    
+.workdesc {
+    position: relative;
+    z-index: 1;
+    transition: opacity 750ms ease;
+    font: 500 25px 'Montserrat', sans-serif;
+    opacity: 0;
+    text-shadow: 1px 1px 1px black;
+    color: cornsilk;
+}
+
+.workbox::before {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+    opacity: 1;
+    transition: filter 750ms ease;
+    transition: background-color 750ms ease;
+}
+.workbox::after {
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 215px;
+    background-color: var(--navcolor);
+    margin-top: 35px;
+    opacity: 0;
+    transition: opacity 750ms ease;
+}
+.workbox:hover::before {
+   filter: blur(1px);
+   background-color: rgba(0, 0, 0, 0.5);
+}
+.workbox:hover::after {
+    opacity: 1;
+}
+.workbox:hover .workdesc {
+    opacity: 1;
+}
+
+@keyframes hover-work {
+    0% {
+        backdrop-filter: blur(0px);
+    }
+    100% {
+        backdrop-filter: blur(1px);
+    }
+ }
+
+/* Portfolio BOXES CSS  */
+
+#job-1 {
+    background-image: url(survey-page.png);
+    background-size: cover;
+    background-position-x: 48%;
+}
+#job-2 {
+    background-image: url(tribute.png);
+    background-size: 260%;
+    background-position-x: 50%;
+    background-position-y: 90%;
+}
+#job-3 {
+    background-image: url(documentation.png);
+    background-size: 250%;
+    background-position-x: 57%;
+}
+#job-4 {
+    background-image: url(baglama.png);
+    background-size: 180%;
+    background-position-x: 50%;
+}
+#job-5 {
+    background-image: url(penguin.png);
+    background-size: 173%;
+    background-position-x: 50%;
+}
+#job-6 {
+    background-image: url(cv.png);
+    background-size: 140%;
+    background-position-x: 50%;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--bgcolor);
+}
+
+/* contact CSS Styling */
+.titlecontact {
+    font-size: 45px;
+    color: cornsilk;
+    text-shadow: 1px 1px 1px black;
+}
+.subcontact {
+    color: rgb(253, 223, 187);
+    margin-top: -30px;
+    font-style: italic;
+}
+.social {
+    display: flex;
+    justify-content: space-around;
+    width: 800px;
+    height: 100px;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 45px;
+}
+.social a{
+    height: 64px;
+    width: 64px;
+    box-sizing: border-box;
+    background-color: cornsilk;
+    padding: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.3);
+    position: relative;
+}
+.social a svg {
+    height: 32px;
+
+}
+
+/* Pseudo social links css */
+
+.social a::before {
+    content: attr(data-social);
+    font-size: 12px;
+    position: absolute;
+    padding: 10px;
+    background-color: var(--icocolor);
+    color: cornsilk;
+    text-decoration: none;
+    border-radius: 100px;
+    box-shadow: 0px 1px 3px cornsilk;
+    transform: translateY(-25px) rotate(25deg);
+    opacity: 0;
+    transition: 350ms cubic-bezier(0.53,-0.02, 0, 1.6);
+}
+.social a::after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--icocolor);
+    transform: translateY(0) rotate(25deg);
+    opacity: 0;
+    transition: 350ms cubic-bezier(0.53,-0.02, 0, 1.6);
+}
+
+/* Hovering over icon changes bg  */
+.social a:hover {
+    background-color:var(--icocolor);
+    fill: cornsilk;
+}
+/* hovering over icon shows text and tooltip  */
+.social a:hover::before {
+   transform: translateY(-62px) rotate(0);
+   opacity: 1;
+}
+.social a:hover::after {
+    transform: translateY(-42px) rotate(0);
+    opacity: 1;
+}
+/* tooltip css */
+
+@media only screen and (max-width:768px) {
+    .project-title{
+        font-size: 18px;
+    }
+    .titlewelcome {
+    font-size: 25px !important; 
+    }
+    .playbox {
+        height: 200px;
+        width: 200px;
+    }
+    .nav {
+        width: 100vw;
+    }
+    .nav a{
+        font-size: 1.2rem;
+    }
+    .workbox {
+        width: 6.5rem;
+        height: 6.5rem;
+    }
+    .grid {
+        grid-template-columns: repeat(3, 100px);  
+    }
+    .workdesc {
+        position: relative;
+        z-index: 1;
+        transition: opacity 750ms ease;
+        font: 500 10px 'Montserrat', sans-serif;
+        opacity: 0;
+        text-shadow: 1px 1px 1px black;
+        color: cornsilk;
+    }
+    .workbox::after {
+        content: "";
+        position: absolute;
+        height: 3px;
+        width: 95px;
+        background-color: var(--navcolor);
+        margin-top: 30px;
+        opacity: 0;
+        transition: opacity 750ms ease;
+    }
+    .underline {
+        width: 350px;
+        height: 2px;
+        background-color: var(--navcolor);  
+      }
+      .subcontact {
+        color: rgb(253, 223, 187);
+        margin-top: -20px;
+        font-style: italic;
+    }
+    .social {
+        display: flex;
+        justify-content: space-around;
+        width: 370px;
+        height: 100px;
+        font-size: 28px;
+        font-weight: 600;
+        margin-top: 45px;
+    }
+    .titlecontact {
+        font-size: 25px;
+    }
+ }
