@@ -387,7 +387,12 @@ body {
    opacity: 1;
    filter: blur(0);
 }
-
+@media only screen and (max-width:1366px) {
+   .workbox {
+       width: 200px;
+       height: 200px;
+   }
+}
 @media only screen and (max-width:768px) {
     .project-title{
         font-size: 18px;
